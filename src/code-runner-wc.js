@@ -222,12 +222,14 @@ outline: 0px solid rgba(39, 40, 35, 1);
 window.customElements.define('code-runner', CodeRunner);
 
 
+/// https://cdn.jsdelivr.net/npm/ansi-up@1.0.0/dist/ansi-up.min.js 
 
 // Function To Call API to run code inside the web-component
 
 // gets data from API and sets the content of #result div
 async function getData(html_element) {
 
+	let ansi_up = new AnsiUp;
 	console.log(html_element.querySelector("#output_section"))
 	// display the output / results block
 	const result_section = html_element.querySelector("#output_section")
@@ -255,7 +257,7 @@ async function getData(html_element) {
 		if (jsonResult.message) {
 			html_element.querySelector("#result").innerText = JSON.stringify(`Error ${jsonResult.message}`)
 		} else {
-			html_element.querySelector("#result").innerText = jsonResult.run.output
+			html_element.querySelector("#result").innerHTML = ansi_up.ansi_to_html(jsonResult.run.output)
 		}
 
 	}
