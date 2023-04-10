@@ -448,9 +448,9 @@ function CreateAceCodeEditor(html_element, language) {
     ace.config.set("basePath", "https://cdn.jsdelivr.net/npm/ace-min-noconflict@1.1.9/");
 
 
-    var text_value = html_element.querySelector("#codetorun").textContent
+    let text_value = html_element.querySelector("#codetorun").textContent
     // Editor Settings (Provided by C9)
-    var editor = ace.edit(html_element.querySelector("#codetorun"));
+    let editor = ace.edit(html_element.querySelector("#codetorun"));
 
     editor.$blockScrolling = Infinity;
 
@@ -459,9 +459,9 @@ function CreateAceCodeEditor(html_element, language) {
         editor.setTheme("ace/theme/monokai");
     } else {
 
-        var themelist = ace.require("ace/ext/themelist")
+        let themelist = ace.require("ace/ext/themelist")
 
-        var themes = themelist.themesByName //object hash of theme objects by name
+        let themes = themelist.themesByName //object hash of theme objects by name
 
         // check if theme name is valid.
         if (themes[CodeRunner_AceEditor_Theme.toLowerCase()] != undefined) {
