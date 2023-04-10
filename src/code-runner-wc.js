@@ -4,7 +4,6 @@ let PistonAPI_Languages = [{"language":"matl","version":"22.5.0","aliases":[]},{
 class CodeRunner extends HTMLElement {
     constructor() {
         super();
-
     }
 
     connectedCallback() {
@@ -12,9 +11,7 @@ class CodeRunner extends HTMLElement {
 
         // will be used to set language type to use and names of languages 
         const language = this.getAttribute('language');
-
-
-
+	    
         const styling = `<style>
     
     /*compress*/
@@ -225,14 +222,12 @@ See the repo if there is any plugins that support "${this.getAttribute("language
             } else {
 
                 // language was found! 
-
+		    
                 /// Render Ace Editor! 
-
                 async function AceEditorForPistonAPI(element) {
                     // Wait till AceEditor is loaded - so no errors occur.
                     let isAceLoaded = await loadAceEditor()
-
-
+		    
                     if (isAceLoaded.loaded === "true") {
                         CreateAceCodeEditor(element, GetVersionForPistonAPI(element.getAttribute("language").toLowerCase(), "GETNAME")) //
                     }
@@ -242,11 +237,7 @@ See the repo if there is any plugins that support "${this.getAttribute("language
             }
 
 
-        } else {
-            // Code Runner WC - is NOT using Piston API & a plugin has been loaded. 	
-
-        }
-
+        } 
 
         // handle Run Button clicks -   
         this.querySelector('[ code-runner-button]').addEventListener('click', (e) => handleclick(this));
@@ -270,8 +261,6 @@ See the repo if there is any plugins that support "${this.getAttribute("language
 
     }
 }
-
-
 
 // Function To Call API to run code inside the web-component
 let ansiUpped = {
@@ -384,10 +373,7 @@ function handleclick(codeRunner) {
 }
 
 
-
-
 // function to load Ace Editor to page 
-
 
 let loadedFiles = false;
 let create = (info) => {
@@ -406,8 +392,6 @@ let create = (info) => {
 };
 let gfgScript = ['https://cdn.jsdelivr.net/npm/ace-min-noconflict@1.1.9/ace.min.js', 'https://cdn.jsdelivr.net/npm/ace-min-noconflict@1.1.9/ext-modelist.js', "https://cdn.jsdelivr.net/npm/ace-min-noconflict@1.1.9/ext-themelist.js"]
 let promiseData = [];
-
-
 
 
 let isAceLoadedAlready = false
@@ -439,8 +423,6 @@ async function loadAceEditor() {
 
     }
 }
-
-
 
 
 /// function to create Ace Editors for CodeRunner-WC
