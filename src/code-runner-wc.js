@@ -102,6 +102,7 @@ class CodeRunner extends HTMLElement {
 	 border: none;
 	 width: 100%;
 	 height: 100%;
+	 border-radius: 0px 0px 10px 10px;
 	 background: var(--code-bg, rgba(39, 40, 35, 1));
 	 font-family: 'Menlo', 'Roboto Mono', 'Courier New', Courier, monospace !important;
 }
@@ -272,9 +273,12 @@ See the repo if there is any plugins that support "${this.getAttribute("language
 
 
 
-
 // Function To Call API to run code inside the web-component
-let ansiUp;
+let ansiUpped = {
+  loaded:false,
+  ansiUp:null,
+};
+
 // gets data from API and sets the content of #result div
 async function getData(html_element) {
     // display the output / results block
@@ -286,13 +290,12 @@ async function getData(html_element) {
 
         try {
 
-
-
-            if (ansiUp != true) {
-                ansiUp = await import("https://cdn.skypack.dev/ansi_up@5.1.0")
-                ansiUp = ansiUp.default
-                ansiUp = new ansiUp
-                console.log(ansiUp)
+	    // loading ANSI_UP via import	
+            if (ansiUpped.loaded != true) {
+                ansiUpped.ansiUp = await import("https://cdn.skypack.dev/ansi_up@5.1.0")
+                ansiUpped.ansiUp = ansiUpped.ansiUp.default
+                ansiUpped.ansiUp = new ansiUpped.ansiUp
+                ansiUpped.loaded = true
             }
 
 
