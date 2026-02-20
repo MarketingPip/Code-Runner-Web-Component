@@ -485,7 +485,7 @@ async function getData(html_element) {
 			}
 
 			const before = Date.now();
-			const res = await fetch('https://emkc.org/api/v2/piston/execute', {
+			const res = await fetch('/.netlify/functions/run-code', {
 				method: 'POST',
 				body: JSON.stringify({
 					language: html_element.getAttribute('language').toLowerCase(),
