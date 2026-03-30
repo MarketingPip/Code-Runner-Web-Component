@@ -33,6 +33,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              exportType: 'string'
+            }
+          }
+        ]
+      },
     ],
   },
   resolve: {
