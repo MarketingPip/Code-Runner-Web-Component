@@ -1,4 +1,4 @@
-import {AnsiUp} from "https://esm.sh/ansi_up";
+import {AnsiUp} from "ansi_up";
 import ace from "ace-builds";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow";
