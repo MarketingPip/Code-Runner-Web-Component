@@ -17,6 +17,9 @@
   },
   "license": "GPL-3.0",
   "repository": "github:MarketingPipeline/Code-Runner-Web-Component",
+  "dependencies": {
+    "ace-builds": "^1.43.3"     
+  },
   "devDependencies": {
     "@babel/core": "^7.24.8",
     "@babel/preset-env": "^7.24.8",
