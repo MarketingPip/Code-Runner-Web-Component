@@ -3,7 +3,7 @@ import ace from "ace-builds";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow";
 import "ace-builds/src-noconflict/theme-monokai";
- 
+import stylesheet from './stylesheet.css';
 // ---------------------------------------------------------------------------
 // Language registry
 // ---------------------------------------------------------------------------
@@ -157,113 +157,7 @@ function sanitise(s) {
 // Styles (injected once into the document)
 // ---------------------------------------------------------------------------
 
-const STYLES = /* css */`
-/*compress*/
-:host { display: block; }
-.ck-wrap {
-  position: relative;
-  background-color: var(--bg, #edebeb);
-  border-radius: 10px;
-  border: 1px solid var(--border, rgb(201,201,201));
-  font-family: 'Metropolis-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
-}
-.ck-pane {
-  height: 40px;
-  display: flex;
-  border-radius: 3px 3px 0 0;
-}
-.ck-title {
-  flex: 1;
-  padding-left: 20px;
-  color: var(--title, black);
-  display: flex;
-  font-size: 14px;
-  align-items: center;
-  opacity: 0.5;
-  text-transform: uppercase;
-}
-.ck-ctrl { flex: 1; display: flex; justify-content: flex-end; }
-.ck-button {
-  height: 40px;
-  padding: 0 16px;
-  font-size: 14px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  color: var(--button-text, black);
-  opacity: 0.8;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: -1px 0 0 0 var(--button-border, rgba(0,0,0,0.5));
-}
-.ck-button img { height: 14px; }
-.ck-button:hover  { opacity: 1; }
-.ck-button:active { opacity: 0.6; }
-.ck-editor {
-  font-size: 14px;
-  line-height: 18px;
-  min-height: 60px;
-  font-family: 'Menlo', 'Roboto Mono', 'Courier New', Courier, monospace;
-  color: var(--code, black);
-  background: var(--code-bg, white);
-  width: 100%;
-  box-sizing: border-box;
-}
-.ck-io {
-  display: flex;
-  border-top: 1px solid var(--border, rgb(201,201,201));
-}
-.ck-input-pane {
-  width: 50%;
-  border-right: 1px solid var(--border, rgb(201,201,201));
-}
-.ck-output-pane { width: 50%; background: var(--bg, #edebeb); }
-.ck-pane-label {
-  color: var(--text, black);
-  opacity: 0.6;
-  font-size: 14px;
-  margin: 0 10px 0 20px;
-  padding: 4px 0;
-  border-bottom: 1px solid rgb(201,201,201);
-}
-.ck-input-area {
-  font-family: 'Menlo', 'Roboto Mono', 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: var(--text, black);
-  background: var(--code-bg, white);
-  white-space: pre-wrap;
-  padding: 8px 12px 8px 20px;
-  width: 100%;
-  box-sizing: border-box;
-  resize: none;
-  outline: none;
-  border: none;
-}
-.ck-output-content {
-  font-family: 'Menlo', 'Roboto Mono', 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: var(--text, black);
-  white-space: pre-wrap;
-  padding: 8px 12px 8px 20px;
-  overflow: auto;
-}
-.ck-mask {
-  display: none;
-  position: absolute;
-  inset: 0;
-  color: white;
-  z-index: 10;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.4);
-  border-radius: 10px;
-}
-.ck-mask.visible { display: flex; }
-.ace_marker-layer .ace_step { background: #FFFFCC !important; }
-/*endcompress*/
-`;
+const STYLES =  stylesheet;
 
 let stylesInjected = false;
 function injectStyles() {
