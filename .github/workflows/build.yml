@@ -46,7 +46,7 @@ jobs:
 
           if ! git diff --cached --quiet; then
             for file in $(git diff --cached --name-only); do
-              git commit -m "Add $file :inbox_tray:" -- "$file"
+              git commit -m "Updated $file :inbox_tray:" -- "$file"
             done
             git push origin HEAD:${{ github.ref_name }}
           else
