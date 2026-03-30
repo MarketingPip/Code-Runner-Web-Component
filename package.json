@@ -19,7 +19,7 @@
   "repository": "github:MarketingPipeline/Code-Runner-Web-Component",
   "dependencies": {
     "ace-builds": "^1.43.3",
-    "ansi-up": "^1.0.0"
+    "ansi_up": "^6.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.24.8",
